@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+        </Shanmuga>
+        </title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  </head>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+  <script type="text/javascript" src="canvasHelper.js"></script>
+
+  <body onload="InitThis();">
+
+    <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+  
+  <div class="container">
+        <!-- Page Content goes here -->
+     
+        <div class="card-panel teal lighten-2">Choose the Tamil Character and write </div>
+        <canvas id="myCanvas" width="500" height="200" style="border:2px solid black"></canvas>
+        <br /><br />
+        <a class="waves-effect waves-light btn-small" onclick="javascript:clearArea();return false;">Clear</a>
+        <a class="waves-effect waves-light btn-small" onclick="sendImg()">Save</a>
+        <blockquote>
+                Character List 
+              </blockquote>
+
+              <div class="row">
+                <div class="col l13">
+                <br><a class="waves-effect waves-light btn-small">அ </a><a class="waves-effect waves-light btn-small">ஆ </a><a class="waves-effect waves-light btn-small">இ </a><a class="waves-effect waves-light btn-small">ஈ </a><a class="waves-effect waves-light btn-small">உ </a><a class="waves-effect waves-light btn-small">ஊ </a><a class="waves-effect waves-light btn-small">எ </a><a class="waves-effect waves-light btn-small">ஏ </a><a class="waves-effect waves-light btn-small">ஐ </a><a class="waves-effect waves-light btn-small">ஒ </a><a class="waves-effect waves-light btn-small">ஓ </a><a class="waves-effect waves-light btn-small">ஔ </a><a class="waves-effect waves-light btn-small">ஃ </a>
+                <div class="col l13">
+                <a class="waves-effect waves-light btn-small">க </a><a class="waves-effect waves-light btn-small">கா</a><a class="waves-effect waves-light btn-small">கி</a><a class="waves-effect waves-light btn-small">கீ</a><a class="waves-effect waves-light btn-small">கு</a><a class="waves-effect waves-light btn-small">கூ</a><a class="waves-effect waves-light btn-small">கெ</a><a class="waves-effect waves-light btn-small">கே</a><a class="waves-effect waves-light btn-small">கை</a><a class="waves-effect waves-light btn-small">கொ</a><a class="waves-effect waves-light btn-small">கோ</a><a class="waves-effect waves-light btn-small">கௌ</a><a class="waves-effect waves-light btn-small">க்</a>
+                </div>
+                </div>
+                </div>
+    </div>
+   </body>
+</html>
