@@ -47,10 +47,13 @@ function clearArea() {
 function sendImg(){
     var canvas = document.getElementById('myCanvas');
     var dataURL = canvas.toDataURL();
-    data = {'imgData':dataURL};
+    var dataChar = $('#tchar').text();
+    data = {'imgData':dataURL,'tchar':dataChar};
+    console.log(data);
     $.ajax({
         url: '/image_data',
         type: 'GET',
+        dataType: "json",
         contentType: "application/json",
         data: data,
         success: function(data) {
@@ -60,3 +63,4 @@ function sendImg(){
 
     
 }
+
