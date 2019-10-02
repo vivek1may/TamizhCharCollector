@@ -48,19 +48,27 @@ function sendImg(){
     var canvas = document.getElementById('myCanvas');
     var dataURL = canvas.toDataURL();
     var dataChar = $('#tchar').text();
-    data = {'imgData':dataURL,'tchar':dataChar};
-    console.log(data);
-    $.ajax({
-        url: '/image_data',
-        type: 'GET',
-        dataType: "json",
-        contentType: "application/json",
-        data: data,
-        success: function(data) {
-            console.log('form submitted.' + data);
-        }
-      });
-
+    if (dataChar ===''){
+        alert("Please select a character");
+    }
+    else{
+        data = {'imgData':dataURL,'tchar':dataChar};
+        // console.log(data);
+        $.ajax({
+            type: "POST",
+            url: "/image_data",
+            data: data,
+            success: function(data) {
+              console.log('message', data.message);
+            },
+            error: function(jqXHR, textStatus, err) {
+                alert('text status '+textStatus+', err '+err)
+            }
+        });
+    }
+   
+    
+    
     
 }
 

@@ -1,9 +1,13 @@
-var express = require('express');  
-var app = express();  
+var express = require('express');
+var bodyParser = require('body-parser');
+var app = express();
 
 app.use(express.static('static'));  
-fs = require('fs');
-sys = require('sys');
+app.use(express.urlencoded({ extended: false }))
+.use(express.json());
+
+const fs = require('fs');
+const sys = require('sys');
   
 app.get('/', function (req, res) {  
    res.sendFile( __dirname + "/" + "index.html" );  
@@ -17,14 +21,24 @@ response = {
    res.end(JSON.stringify(response));  
 })
 
-app.get('/image_data',function(req,res){
-  console.log("GET method");
-  console.log(req.query);
-  img_data = req.query.imgData;
-  var base64Data = img_data.replace(/^data:image\/\w+;base64,/, "");
-  require("fs").writeFile("out.png", base64Data, 'base64', function(err) {
+function SaveData(char,data){
+
+  if (!fs.existsSync('data/'+ char)){
+    fs.mkdirSync('data/' + char);
+  }
+  require("fs").writeFile("data/"+ char + '/' + Date.now().toString() + ".png", data, 'base64', function(err) {
     console.log(err);
   });
+
+}
+
+app.post('/image_data',function(req,res){
+  console.log("POST method");
+  console.log("Character",req.body);
+  img_data = req.body.imgData;
+  tchar = req.body.tchar;
+  // var base64Data = img_data.replace(/^data:image\/\w+;base64,/, "");
+  SaveData(tchar,img_data.replace(/^data:image\/\w+;base64,/, ""));
 })
 var server = app.listen(8000, function () {  
   
