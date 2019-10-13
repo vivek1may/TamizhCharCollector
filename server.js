@@ -12,14 +12,7 @@ const sys = require('sys');
 app.get('/', function (req, res) {  
    res.sendFile( __dirname + "/" + "index.html" );  
 })  
-app.get('/process_get', function (req, res) {  
-response = {  
-       first_name:req.query.first_name,  
-       last_name:req.query.last_name  
-   };  
-   console.log(response);  
-   res.end(JSON.stringify(response));  
-})
+
 
 function SaveData(char,data){
 
@@ -39,6 +32,7 @@ app.post('/image_data',function(req,res){
   tchar = req.body.tchar;
   // var base64Data = img_data.replace(/^data:image\/\w+;base64,/, "");
   SaveData(tchar,img_data.replace(/^data:image\/\w+;base64,/, ""));
+  res.end('ok');
 })
 var server = app.listen(8000, function () {  
   
